@@ -1,0 +1,21 @@
+{
+  "name": "grobid-client-node",
+  "version": "0.1.0",
+  "description": "Basic client for the GROBID service",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Patrice Lopez",
+  "license": "Apache 2.0",
+  "keywords": [
+    "grobid"
+  ],
+  "dependencies": {
+    "async": "^2.1.4",
+    "mkdirp": "^0.5.1",
+    "request": "^2.74.0",
+    "form-data": "^2.2.0",
+    "sleep": ""
+  }
+}
