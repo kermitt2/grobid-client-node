@@ -32,6 +32,21 @@ Example:
 
 This command will extract the header of the PDF files under `~/tmp/in` with 20 concurrent call to the GROBID server and write the TEI results under `~/tmp/out`.
 
+## Benchmarking
+
+Full text processing of __136 PDF__ on Intel Core i7-4790K CPU 4.00GHz, 8 cores, 16GB memory, n being the concurrency parameter:
+
+| n  | runtime (s)| s/PDF |
+|----|------------|-------|
+| 1  | 230.9 | 1.69       |
+| 2  | 121.6 | 0.89       |
+| 3  | 87.9  | 0.64       |
+| 5  | 66.2  | 0.48       |
+| 8  | 57.7  | 0.42       |
+| 10 | 56.5  | 0.41       |
+
+![Runtime Plot](resources/20180927035700.png | width=200)
+
 
 ## Requirements
 
