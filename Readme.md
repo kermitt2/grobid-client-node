@@ -45,8 +45,7 @@ Full text processing of __136 PDF__ on Intel Core i7-4790K CPU 4.00GHz, 8 cores,
 | 8  | 57.7  | 0.42       |
 | 10 | 56.5  | 0.41       |
 
-![Runtime Plot](resources/20180927035700.png | width=200)
-
+![Runtime Plot](resources/20180927035700.png)
 
 ## Requirements
 
