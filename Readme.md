@@ -60,3 +60,9 @@ Benchmarking with more files (e.g. million ISTEX PDF). Also implement existing G
 - form-data
 - mkdirp
 - sleep
+
+## License
+
+Distributed under [Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0). 
+
+Main author and contact: Patrice Lopez (<patrice.lopez@science-miner.com>)
