@@ -34,7 +34,7 @@ This command will extract the header of the PDF files under `~/tmp/in` with 20 c
 
 ## Benchmarking
 
-Full text processing of __136 PDF__ (total 3443 pages, in average 25 pages per PDF) on Intel Core i7-4790K CPU 4.00GHz, 8 cores, 16GB memory, n being the concurrency parameter:
+Full text processing of __136 PDF__ (total 3443 pages, in average 25 pages per PDF) on Intel Core i7-4790K CPU 4.00GHz, 4 cores (8 threads), 16GB memory, n being the concurrency parameter:
 
 | n  | runtime (s)| s/PDF | 
 |----|------------|-------|
