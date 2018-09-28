@@ -18,7 +18,7 @@ Example:
 
 > node main -in ~/tmp/in -out ~/tmp/out
 
-Only the files with extension `.pdf` present in the input directory (`-in`) will be processed, the other files will be ignored. Results will be written in the output directory (`-out`), reusing the file name with different file extensions (see above).
+Only the files with extension `.pdf` present in the input directory (`-in`) will be processed, the other files will be ignored. Results will be written in the output directory (`-out`), reusing the file name with a different file extension (`.tei.xml`).
 
 Other parameters 
 
@@ -30,7 +30,7 @@ Example:
 
 > node main -in ~/tmp/in -out ~/tmp/out -n 20 processHeaderDocument
 
-This command will extract the header of the PDF files under `~/tmp/in` with 20 concurrent call to the GROBID server and write the TEI results under `~/tmp/out`.
+This command will extract the header of the PDF files under `~/tmp/in` with 20 concurrent calls to the GROBID server and write the TEI results under `~/tmp/out`.
 
 ## Benchmarking
 
@@ -47,14 +47,12 @@ Full text processing of __136 PDF__ (total 3443 pages, in average 25 pages per P
 
 ![Runtime Plot](resources/20180927035700.png)
 
-As complementary info, GROBID processing of header, with of the 136 PDF and with `n=10` takes 5.37 s (8 times faster because only the two first pages of the PDf are considered). In similar conditions, extraction and structuring of bibliographical references takes 27.1 s.
+As complementary info, GROBID processing of header, with of the 136 PDF and with `n=10` takes 5.37 s (8 times faster than the complete full text processing because only the two first pages of the PDF are considered). In similar conditions, extraction and structuring of bibliographical references takes 27.1 s.
 
 ## Requirements
 
 - async
 - request
 - form-data
-- fs
 - mkdirp
-- path
 - sleep
