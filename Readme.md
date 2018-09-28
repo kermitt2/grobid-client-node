@@ -49,6 +49,10 @@ Full text processing of __136 PDF__ (total 3443 pages, in average 25 pages per P
 
 As complementary info, GROBID processing of header, with of the 136 PDF and with `n=10` takes 5.37 s (8 times faster than the complete full text processing because only the two first pages of the PDF are considered). In similar conditions, extraction and structuring of bibliographical references takes 27.1 s.
 
+## Todo
+
+Benchmarking with more files (e.g. million ISTEX PDF). Also implement existing GROBID services for text input (date, name, affiliation/address, raw bibliographical references, etc.). YAML config file. Better support for parameters (including elements where to put coordinates).
+
 ## Requirements
 
 - async
