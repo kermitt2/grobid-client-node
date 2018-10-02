@@ -10,7 +10,7 @@ var mkdirp = require('mkdirp'),
   sleep = require('sleep');
 
 // the URL of the GROBID service (to be changed if necessary)
-const GROBID_URL = "http://localhost:8070/api/";
+//const GROBID_URL = "http://localhost:8070/api/";
 
 // for making console output less boring
 const green = '\x1b[32m';
@@ -45,7 +45,11 @@ function callGROBID(options, file, callback) {
     form.append("input", fs.createReadStream(options.inPath+"/"+file));
     form.append("consolidateHeader", "1");
     form.append("consolidateCitations", "0");
-    form.submit(GROBID_URL+options.action, function(err, res, body) {
+    var grobid_url = "http://" + options.grobid_host;
+    if (options.grobid_port) 
+        grobid_url += ':' + options.grobid_port
+    grobid_url += '/api/'; 
+    form.submit(grobid_url+options.action, function(err, res, body) {
         if (err) {
             console.log(err);
             return false;
@@ -61,8 +65,11 @@ function callGROBID(options, file, callback) {
         if (res.statusCode == 503) {
             // service unavailable, normally it means all the threads for GROBID on the server are currently used 
             // so we sleep a bit before retrying the process
-            sleep.sleep(5); 
+            sleep.sleep(options.sleep_time); 
             return callGROBID(options, file, callback);
+        } else if (res.statusCode == 204) {
+            // success but no content, no need to read further the response and write an empty file
+            return true;
         } else if (res.statusCode != 200) {
             console.log("Call to GROBID service failed with error " + res.statusCode);
             return false;
@@ -132,6 +139,13 @@ function processGROBID(options) {
  */
 function init() {
     var options = new Object();
+
+    // start with the config file
+    const config = require('./config.json');
+    options.grobid_host = config.grobid_host;
+    options.grobid_port = config.grobid_port;
+    options.sleep_time = config.sleep_time;
+
     // default service is full text processing
     options.action = "processFulltextDocument";
     options.concurrency = 10; // number of concurrent call to GROBID, default is 10

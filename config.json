@@ -1,0 +1,5 @@
+{ 
+  "grobid_host" : "localhost",
+  "grobid_port" : "8070",
+  "sleep_time" : 5000
+}
