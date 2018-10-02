@@ -4,7 +4,7 @@ This node.js module can be used to process in an efficient concurrent manner a s
 
 ## Build and run
 
-You need first to install and start the *grobid* service, latest stable version, see the [documentation](http://grobid.readthedocs.io/). It is assumed that the server will run on the address `http://localhost:8070`. You can change the server address by editing the file `main.js`.
+You need first to install and start the *grobid* service, latest stable version, see the [documentation](http://grobid.readthedocs.io/). By default, it is assumed that the server will run on the address `http://localhost:8070`. You can change the server address by editing the config  file `config.json`.
 
 Install the present module:
 
@@ -51,7 +51,7 @@ As complementary info, GROBID processing of header, with of the 136 PDF and with
 
 ## Todo
 
-Benchmarking with more files (e.g. million ISTEX PDF). Also implement existing GROBID services for text input (date, name, affiliation/address, raw bibliographical references, etc.). YAML config file. Better support for parameters (including elements where to put coordinates).
+Benchmarking with more files (e.g. million ISTEX PDF). Also implement existing GROBID services for text input (date, name, affiliation/address, raw bibliographical references, etc.). Better support for parameters (including elements where to put coordinates).
 
 ## Requirements
 
