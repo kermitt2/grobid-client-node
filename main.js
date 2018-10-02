@@ -122,6 +122,7 @@ function processGROBID(options) {
 
     q.drain = function() {
         console.log(red, "\nall tasks completed!", reset);
+        end();
     }
 
     for(var i = 0; i < listOfFiles.length; i++) {
@@ -194,8 +195,16 @@ function init() {
     return options;
 }
 
+function end() {
+    var this_is_the_end = new Date() - start
+    console.info('Execution time: %dms', this_is_the_end)
+}
+
+var start;
+
 function main() {
     var options = init();
+    start = new Date()
     processGROBID(options);
 }
 
