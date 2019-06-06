@@ -36,18 +36,20 @@ This command will extract the header of the PDF files under `~/tmp/in` with 20 c
 
 Full text processing of __136 PDF__ (total 3443 pages, in average 25 pages per PDF) on Intel Core i7-4790K CPU 4.00GHz, 4 cores (8 threads), 16GB memory, n being the concurrency parameter:
 
-| n  | runtime (s)| s/PDF | 
-|----|------------|-------|
-| 1  | 230.9 | 1.69       | 
-| 2  | 121.6 | 0.89       |
-| 3  | 87.9  | 0.64       |
-| 5  | 66.2  | 0.48       |
-| 8  | 57.7  | 0.42       |
-| 10 | 56.5  | 0.41       |
+| n  | runtime (s)| s/PDF | PDF/s |
+|----|------------|-------|-------|
+| 1  | 230.9 | 1.69       | 0.59 |
+| 2  | 121.6 | 0.89       | 1.12 |
+| 3  | 87.9  | 0.64       | 1.55 |
+| 5  | 66.2  | 0.48       | 2.05 |
+| 8  | 57.7  | 0.42       | 2.35 |
+| 10 | 56.5  | 0.41       | 2.41 |
 
 ![Runtime Plot](resources/20180927035700.png)
 
-As complementary info, GROBID processing of header, with of the 136 PDF and with `n=10` takes 5.37 s (8 times faster than the complete full text processing because only the two first pages of the PDF are considered). In similar conditions, extraction and structuring of bibliographical references takes 27.1 s.
+As complementary info, GROBID processing of header of the 136 PDF and with `n=10` takes 5.37 s (8 times faster than the complete full text processing because only the two first pages of the PDF are considered), 25.33 PDF/s. In similar conditions, extraction and structuring of bibliographical references takes 27.1 s, 5.02 PDF/s.
+
+A [variant of this node.js client](https://github.com/istex/grobid-client-istex) for the ISTEX resources (22 million PDF) scaled to around 11 PDF per second with 2 16-CPU servers, processing approx. 950K PDF per day.  
 
 ## Todo
 
